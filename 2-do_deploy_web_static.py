@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-from fabric.api import run, put
-import os
+"""A fabric script that distributes an archive to your web servers, using the
+function do_deploy"""
+from fabric.api import *
+import os.path
 env.hosts = ['34.74.176.216', '34.74.12.104']
 
 
