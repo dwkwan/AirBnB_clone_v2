@@ -25,6 +25,7 @@ def do_pack():
     result = local("tar -cvzf {:} web_static".format(output_file))
     if result.failed:
         return None
+    return output_file
 
 
 def do_deploy(archive_path):
