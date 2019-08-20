@@ -10,11 +10,11 @@ def do_deploy(archive_path):
     """distributes an archive to your web servers"""
     if not os.path.exists(archive_path):
         return False
-    result = put(archive_path, "/tmp/")
-    if result.failed:
-        return False
     archive_filename = archive_path.replace("versions/", "")
     filename_noext = archive_filename.replace(".tgz", "")
+    result = put(archive_path, "/tmp/".format(archive_filename))
+    if result.failed:
+        return False
     result = run('mkdir -p /data/web_static/releases/{:}/'.format(
         filename_noext))
     if result.failed:
