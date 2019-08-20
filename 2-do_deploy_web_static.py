@@ -13,7 +13,7 @@ def do_deploy(archive_path):
     if not os.path.exists(archive_path):
         return False
     archive_list = archive_path.split("/")
-    archive_filename = archive_list[1]
+    archive_filename = archive_list[-1]
     filename_list = archive_filename.split(".")
     filename_noext = filename_list[0]
     result = put(archive_path, "/tmp/".format(archive_filename))
@@ -44,7 +44,7 @@ def do_deploy(archive_path):
         return False
     result = run(
         'ln -s /data/web_static/releases/{:}/ /data/web_static/current'.format(
-            filename_notext))
+            filename_noext))
     if result.failed:
         return False
     return True
