@@ -3,6 +3,8 @@
 function do_deploy"""
 from fabric.api import *
 import os.path
+
+
 env.hosts = ['34.74.176.216', '34.74.12.104']
 
 
@@ -10,8 +12,10 @@ def do_deploy(archive_path):
     """distributes an archive to your web servers"""
     if not os.path.exists(archive_path):
         return False
-    archive_filename = archive_path.replace("versions/", "")
-    filename_noext = archive_filename.replace(".tgz", "")
+    archive_list = archive_path.split("/")
+    archive_filename = archive_list[1]
+    filename_list = archive_filename.split(".")
+    filename_noext = filename_list[0]
     result = put(archive_path, "/tmp/".format(archive_filename))
     if result.failed:
         return False
