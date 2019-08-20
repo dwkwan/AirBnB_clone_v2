@@ -36,7 +36,7 @@ def do_deploy(archive_path):
     archive_filename = archive_list[-1]
     filename_list = archive_filename.split(".")
     filename_noext = filename_list[0]
-    result = put(archive_path, "/tmp/".format(archive_filename))
+    result = put(archive_path, "/tmp/")
     if result.failed:
         return False
     result = run('mkdir -p /data/web_static/releases/{:}/'.format(
