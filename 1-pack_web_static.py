@@ -12,3 +12,4 @@ def do_pack():
     result = local("tar -cvzf {:} web_static".format(output_file))
     if result.failed:
         return None
+    return output_file
