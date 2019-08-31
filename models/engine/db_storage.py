@@ -38,8 +38,8 @@ class DBStorage:
                 key = "{}.{}".format(type(obj).__name__, obj.id)
                 obj_dict[key] = obj
         else:
-            for obj in self.__session.query(eval(cls)).all():
-                key = "{}.{}".format(eval(cls).__name__, obj.id)
+            for obj in self.__session.query(cls).all():
+                key = "{}.{}".format(cls.__name__, obj.id)
                 obj_dict[key] = obj
         return obj_dict
 
