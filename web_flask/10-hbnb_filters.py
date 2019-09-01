@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def display_filters():
+    """displays states, cities, and amenities under filters"""
     state_dict = storage.all(State)
     amenity_dict = storage.all(Amenity)
     return render_template('10-hbnb_filters.html', state_dict=state_dict,
@@ -22,6 +23,7 @@ def display_filters():
 
 @app.teardown_appcontext
 def teardown_db(self):
+    """removes the current SQLAlchemy Session"""
     storage.close()
 
 if __name__ == "__main__":

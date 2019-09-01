@@ -12,12 +12,14 @@ app = Flask(__name__)
 
 @app.route('/cities_by_states', strict_slashes=False)
 def display_cities_by_state():
+    """displays cities by state"""
     state_dict = storage.all(State)
     return render_template('8-cities_by_states.html', state_dict=state_dict)
 
 
 @app.teardown_appcontext
 def teardown_db(self):
+    """removes the current SQLAlchemy Session"""
     storage.close()
 
 if __name__ == "__main__":

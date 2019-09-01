@@ -13,6 +13,7 @@ app = Flask(__name__)
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<id>', strict_slashes=False)
 def display_states_and_cities(id=None):
+    """displays states and cities by state id"""
     state_dict = storage.all(State)
     found = None
     if id is not None:
@@ -26,6 +27,7 @@ def display_states_and_cities(id=None):
 
 @app.teardown_appcontext
 def teardown_db(self):
+    """removes the current SQLAlchemy Session"""
     storage.close()
 
 if __name__ == "__main__":
