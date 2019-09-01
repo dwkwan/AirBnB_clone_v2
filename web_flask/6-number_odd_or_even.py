@@ -9,13 +9,13 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route('/hbnb', strict_slashes=False)
+@app.route('/', strict_slashes=False)
 def hello_world():
     """Returns the string Hello HBNB!"""
     return 'Hello HBNB!'
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/hbnb', strict_slashes=False)
 def hello_hbnb():
     """Returns the string HBNB"""
     return 'HBNB'
