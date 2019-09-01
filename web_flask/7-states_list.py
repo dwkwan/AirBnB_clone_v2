@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""This module starts a Flask web application and displays an integer and if
-it is even or odd
+"""This module starts a Flask web application and displays states
 """
 from flask import Flask
 from flask import escape
