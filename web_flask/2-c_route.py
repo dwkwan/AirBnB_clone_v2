@@ -8,17 +8,21 @@ app = Flask(__name__)
 
 @app.route('/hbnb', strict_slashes=False)
 def hello_world():
-    return 'HBNB'
+    """Returns the string Hello HBNB!"""
+    return 'Hello HBNB!'
 
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
-    return 'Hello HBNB!'
+    """Returns the string HBNB"""
+    return 'HBNB'
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def hello_c(text):
+    """Returns a string starting with C"""
     mod_text = escape(text)
     return 'C %s' % mod_text.replace("_", " ")
 
-app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)

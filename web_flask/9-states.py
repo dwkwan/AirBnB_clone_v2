@@ -28,4 +28,5 @@ def display_states_and_cities(id=None):
 def teardown_db(self):
     storage.close()
 
-app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
